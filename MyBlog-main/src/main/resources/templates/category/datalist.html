@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <th:block th:replace="/layout/header.html :: fragment-header"></th:block>
+  <style>
+    h2 {
+      text-align: center;
+    }
+
+  </style>
+</head>
+<div th:replace="/layout/nav.html :: fragment-nav"></div>
+<body>
+<div class="container" style="max-width: 1000px">
+  <div class="py-5 text-center">
+    <h2>신고된 피싱 목록</h2>
+<!--    <h2 th:text="#{page.boards}">신고된 피싱 목록</h2>-->
+  </div>
+
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <button class="btn btn-primary float-end"-->
+<!--              onclick="location.href='addForm.html'"-->
+<!--              th:onclick="|location.href='@{/boards/add}'|"-->
+<!--              type="button" th:text="#{page.addBoard}">글 등록</button>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <hr class="my-4">
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>파일명</th>
+        <th>작성자</th>
+        <th>신고된 번호</th>
+        <th>분석결과</th>
+        <th>등록일</th>
+<!--        <th th:text="#{label.board.viewcnt}">조회수</th>-->
+<!--        <th th:text="#{label.board.regdate}">등록일</th>-->
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="board : ${boards}">
+        <td th:text="${board.id}">No.</td>
+        <td><a th:href="@{/board/{id}(id=${board.getId()})}" th:text="${board.audioFile}"></a></td>
+        <td th:text="${board.getUser.username}">작성자</td>
+        <td th:text="${board.declaration}">신고된 번호</td>
+        <td th:text="${board.disData}">분석 결과</td>
+        <td th:text="${board.createdDate}">등록일</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div> <!-- /container -->
+
+
+<footer th:replace="/layout/footer.html :: fragment-footer"></footer>
+</body>
+</html>
