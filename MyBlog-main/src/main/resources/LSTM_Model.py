@@ -12,10 +12,10 @@ from sklearn.model_selection import train_test_split
 #------MariaDB연결
 conn = mariadb.connect(
     user="root",
-    password="hkit301301",
-    host="182.229.34.184",
+    password="1234",
+    host="localhost:8989",
     port=3306,
-    database="301project"
+    database="board_study"
 )
 
 #DB메인코드

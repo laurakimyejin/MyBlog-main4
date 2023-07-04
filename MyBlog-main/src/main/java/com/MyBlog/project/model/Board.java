@@ -4,18 +4,17 @@ import javax.persistence.*;
 
 import com.MyBlog.project.dto.BoardDto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Builder
 @Entity
-public class Board extends BaseTimeEntity{
+public class Board {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,10 +38,9 @@ public class Board extends BaseTimeEntity{
 	@Lob // 대용량 데이터
 	private String content;
 
-	
-	//조회수
-//	@Column(nullable =false)
-//	private int views;
+	@Column(nullable = false)
+	private LocalDate createdDate;
+
 	
 	@ManyToOne(fetch = FetchType.LAZY) //EAGER=호출시 바로 로드
     @JoinColumn(name = "userId") //DB상 필드값은 userId로 설정
@@ -62,6 +60,7 @@ public class Board extends BaseTimeEntity{
                 .disData(disData)
                 .declaration(declaration)
                 .user(user)
+				.createdDate(createdDate)
                 .build();
 	}
 }

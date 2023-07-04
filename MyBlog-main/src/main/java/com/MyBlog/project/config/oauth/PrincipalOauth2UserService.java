@@ -60,8 +60,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 					.password(password)
 					.phoneNumber(phoneNumber)
 					.rating(RoleType.USER)
-					.provider(providerId)
-					.providerId(providerId)
 					.build();
 			userRepository.save(userEntity);
 		}

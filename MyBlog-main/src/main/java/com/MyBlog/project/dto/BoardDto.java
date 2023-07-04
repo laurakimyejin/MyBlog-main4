@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +24,7 @@ public class BoardDto {
     private String content;
     private String declaration;
     private char disData;
+	private LocalDate createdDate;
     private User user;
     
     public Board toEntity() {
@@ -31,6 +34,7 @@ public class BoardDto {
     			.content(content)
     			.declaration(declaration)
     			.disData(disData)
+				.createdDate(createdDate)
     			.user(user)
     			.build();
     }
@@ -42,6 +46,7 @@ public class BoardDto {
     	 this.content = board.getContent();
          this.declaration = board.getDeclaration();
          this.disData = board.getDisData();
+		 this.createdDate = board.getCreatedDate();
          this.user = board.getUser();
          return this;
     }

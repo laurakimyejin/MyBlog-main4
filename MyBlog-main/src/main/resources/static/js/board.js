@@ -14,6 +14,32 @@ let index = {
         })
     },
 
+    // 서치하기
+    // search: function (){
+    //     $.ajax({
+    //         type : 'GET',
+    //         url : "/getSearchList",
+    //         data : $("form[name=search-form]").serialize(),
+    //         success : function (result){
+    //             //initialize table
+    //             $('#board > tbody').empty();
+    //             if(result.length>=1){
+    //                 result.forEach(function (voicedata){
+    //                     str='<tr>'
+    //                     str += "<td>"+voicedata.id+"</td>";
+    //                     str+="<td>"+voicedata.username+"</td>";
+    //                     str+="<td><a href = '/board/detail?id=" + voicedata.id + "'>" + voicedata.title + "</a></td>";
+    //                     str+="<td><a href='/board/detail?id='"
+    //                     str+="<td>"+item.date+"</td>";
+    //                     str+="</tr>"
+    //                     $('#board').append(str);
+    //
+    //                 })
+    //             }
+    //         }
+    //     })
+    // }
+
     save: function () {
         let data = {
             title: $("#title").val(),

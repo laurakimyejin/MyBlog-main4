@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.MyBlog.project.dto.BoardDto;
 import com.MyBlog.project.model.Board;
-import com.MyBlog.project.model.User;
 import com.MyBlog.project.repository.BoardRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -44,11 +43,7 @@ public class BoardService {
 		return boardRepository.findAll().stream().map(new BoardDto()::toDto).collect(Collectors.toList());
 		
 	}
-//	@Transactional
-//	public Page<Board> categoryList(Pageable pageable, String category){
-//		return boardRepository.findByCategory(pageable, category);
-//	}
-	
+
 	//id로 정보를 던지는 상세보기
 	@Transactional
 	public BoardDto details(Long id) {

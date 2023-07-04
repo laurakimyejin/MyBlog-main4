@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @Entity
-public class User extends BaseTimeEntity {
+public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,8 +36,8 @@ public class User extends BaseTimeEntity {
 	@Enumerated(EnumType.STRING)
 	private RoleType rating;
 	
-	private String provider;
-	private String providerId;
+//	private String provider;
+//	private String providerId;
 	
 	public void updatePhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
@@ -61,13 +61,13 @@ public class User extends BaseTimeEntity {
     }
     
     @Builder
-    public User(long id, String username, String password, String phoneNumber, RoleType rating, String provider, String providerId) {
+    public User(long id, String username, String password, String phoneNumber, RoleType rating) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.rating = rating;
-        this.provider = provider;
-        this.providerId = providerId;
+//        this.provider = provider;
+//        this.providerId = providerId;
     }
 }
