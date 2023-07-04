@@ -8,7 +8,7 @@ public class PythonScriptRunner {
     public void runPythonScript() {
         try {
             // Python 스크립트 경로 설정
-            String pythonScriptPath = "../src/main/resources/MyPythonScript.py";
+            String pythonScriptPath = "../src/main/resources/LSTM_Model.py";
 
             // Python 실행 명령어 설정
             String pythonCommand = "python " + pythonScriptPath;
