@@ -9,7 +9,9 @@ public class PythonScriptController {
     public String runPythonScript() {
         try {
             // Python 스크립트 실행 코드
-
+            String pythonScriptPath = "/src/main/resources/LSTM_Model.py";
+            Process process = Runtime.getRuntime().exec(pythonScriptPath);
+            process.waitFor();
             return "success";
         } catch (Exception e) {
             e.printStackTrace();

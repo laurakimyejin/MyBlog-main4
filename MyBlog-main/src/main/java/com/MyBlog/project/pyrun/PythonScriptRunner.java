@@ -8,7 +8,7 @@ public class PythonScriptRunner {
     public void runPythonScript() {
         try {
             // Python 스크립트 경로 설정
-            String pythonScriptPath = "../src/main/resources/LSTM_Model.py";
+            String pythonScriptPath = "/src/main/resources/LSTM_Model.py";
 
             // Python 실행 명령어 설정
             String pythonCommand = "python " + pythonScriptPath;
@@ -17,7 +17,7 @@ public class PythonScriptRunner {
             ProcessBuilder pb = new ProcessBuilder(pythonCommand.split(" "));
 
             // 작업 경로 설정 (선택 사항)
-            pb.directory(new File("경로를 입력하세요"));
+            pb.directory(new File("C:\\Users\\smoke\\OneDrive\\바탕 화면"));
 
             // 프로세스 시작
             Process process = pb.start();
